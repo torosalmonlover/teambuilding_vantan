@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask Basic App</title>
+    <title>目標設定フォーム</title>
 </head>
 <body>
-    <h1>Welcome to the Flask Basic App</h1>
-    <div>
-        {% block content %}{% endblock %}
-    </div>
+    <h1>目標を設定する</h1>
+    <form action="{{ url_for('submit_goal') }}" method="POST">
+        <label for="goal">目標:</label>
+        <input type="text" id="goal" name="goal" required>
+        <br><br>
+
+        <label for="description">説明:</label>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+        <br><br>
+
+        <label for="deadline">期限:</label>
+        <input type="date" id="deadline" name="deadline" required>
+        <br><br>
+
+        <button type="submit">送信</button>
+    </form>
 </body>
 </html>
