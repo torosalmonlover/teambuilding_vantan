@@ -8,6 +8,8 @@ def create_app():
         SECRET_KEY='dev',
     )
 
-    # Register blueprints or routes here if needed
+    # Import and register the blueprint
+    from .routes import main
+    app.register_blueprint(main)
 
     return app
